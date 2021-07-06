@@ -6,7 +6,7 @@
   version="2.0">
 	<persistence-unit name="training-ms" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>org.cg.apps.jpademo1.com.example.jpademo1.entities.Employee</class>
+		<class>com.example.jpademo1.entities.Trainee</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/training" />
