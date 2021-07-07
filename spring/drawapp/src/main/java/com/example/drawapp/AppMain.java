@@ -21,6 +21,7 @@ public class AppMain {
          Canvas canvas=  context.getBean("canvas", Canvas.class);
          Shape shape=canvas.getShape();
          System.out.println("is shape in can null "+ shape==null);
+         canvas.drawArea();
 
 
     }
