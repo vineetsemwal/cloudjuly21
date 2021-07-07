@@ -4,10 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+
 /**
  * @Component tells spring to keep bean class object in container
  */
-@Scope("prototype")
 @Component
 public class Canvas {
 
@@ -28,6 +29,12 @@ public class Canvas {
     public void drawArea(){
         double area= shape.area();
         System.out.println("drawing area is "+area);
+    }
+
+    @PostConstruct
+    public void  afterInit(){
+    System.out.println("inside afterinit of Canvas class "+shape.area());
+
     }
 
 }
