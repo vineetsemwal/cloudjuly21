@@ -17,13 +17,15 @@ public class AppMain {
         // AnnotationConfigApplicationContext is the type of ApplicationContext
         //
         ApplicationContext context = new AnnotationConfigApplicationContext(JavaConfig.class);
- //        Canvas canvas=context.getBean(Canvas.class);
-         Canvas canvas=  context.getBean("canvas", Canvas.class);
-         Shape shape=canvas.getShape();
-         System.out.println("is shape in can null "+ shape==null);
-         canvas.drawArea();
-
-
+        Canvas canvas1=context.getBean(Canvas.class);
+       //  Canvas canvas=  context.getBean("canvas", Canvas.class);
+         Shape shape1=canvas1.getShape();
+         Shape shape2=context.getBean(Shape.class);
+         boolean isShapeSame=shape1==shape2;
+         System.out.println("is shapes same?"+isShapeSame);
+         Canvas canvas2  = context.getBean(Canvas.class);
+         boolean isCanvasSame=canvas1==canvas2;
+         System.out.println("is canvas same? "+isCanvasSame);
     }
 
 }

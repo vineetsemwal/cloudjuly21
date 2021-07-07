@@ -1,11 +1,13 @@
 package com.example.drawapp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
  * @Component tells spring to keep bean class object in container
  */
+@Scope("prototype")
 @Component
 public class Canvas {
 
