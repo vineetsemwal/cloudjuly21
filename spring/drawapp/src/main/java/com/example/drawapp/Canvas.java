@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 /**
  * @Component tells spring to keep bean class object in container
@@ -36,5 +37,12 @@ public class Canvas {
     System.out.println("inside afterinit of Canvas class "+shape.area());
 
     }
+
+    @PreDestroy
+    public void beforeDestroyed(){
+        System.out.println("inside Canvas beforeDestroyed");
+    }
+
+
 
 }

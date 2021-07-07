@@ -16,7 +16,7 @@ public class AppMain {
         // application context used for setting up container/BeanFactory
         // AnnotationConfigApplicationContext is the type of ApplicationContext
         //
-        ApplicationContext context = new AnnotationConfigApplicationContext(JavaConfig.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JavaConfig.class);
         Canvas canvas1=context.getBean(Canvas.class);
        //  Canvas canvas=  context.getBean("canvas", Canvas.class);
          Shape shape1=canvas1.getShape();
@@ -26,6 +26,7 @@ public class AppMain {
          Canvas canvas2  = context.getBean(Canvas.class);
          boolean isCanvasSame=canvas1==canvas2;
          System.out.println("is canvas same? "+isCanvasSame);
+         context.close();
     }
 
 }
