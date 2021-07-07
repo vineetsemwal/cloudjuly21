@@ -17,9 +17,12 @@ public class AppMain {
         // AnnotationConfigApplicationContext is the type of ApplicationContext
         //
         ApplicationContext context = new AnnotationConfigApplicationContext(JavaConfig.class);
-         Canvas canvas=context.getBean(Canvas.class);
+ //        Canvas canvas=context.getBean(Canvas.class);
+         Canvas canvas=  context.getBean("canvas", Canvas.class);
          Shape shape=canvas.getShape();
          System.out.println("is shape in can null "+ shape==null);
+
+
     }
 
 }

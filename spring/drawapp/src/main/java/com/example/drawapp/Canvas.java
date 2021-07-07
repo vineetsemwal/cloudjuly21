@@ -12,7 +12,7 @@ public class Canvas {
     private Shape shape;
 
     /**
-     * tells spring that this method can be sued for setting dependency
+     * tells spring that this method can be used for setting dependency
      */
     @Autowired
     public void setShape(Shape shape){
