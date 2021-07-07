@@ -1,4 +1,4 @@
-package com.example.manytoonebi.entities;
+package com.example.manytoonebi;
 
 import javax.persistence.*;
 import java.util.HashSet;
