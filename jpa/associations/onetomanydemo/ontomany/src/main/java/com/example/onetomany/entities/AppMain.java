@@ -1,4 +1,4 @@
-package com.example.manytoone.entities;
+package com.example.onetomany.entities;
 
 import javax.persistence.*;
 import java.util.HashSet;

@@ -1,18 +1,24 @@
-package com.example.manytoone.entities;
+package com.example.onetomany.entities;
 
 import javax.persistence.*;
 import java.util.Objects;
-import java.util.Set;
 
-@Table(name="departments")
+@Table(name="employees")
 @Entity
-public class Department {
+public class Employee {
 
     @GeneratedValue
     @Id
     private Long id;
 
     private String name;
+
+
+   public Employee() {}
+
+    public Employee(String name){
+       this.name=name;
+       }
 
     public Long getId() {
         return id;
@@ -30,23 +36,12 @@ public class Department {
         this.name = name;
     }
 
-    @OneToMany
-    private Set<Employee> employees;
-
-    public Set<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Department that = (Department) o;
-        return Objects.equals(id, that.id);
+        Employee employee = (Employee) o;
+        return Objects.equals(id, employee.id);
     }
 
     @Override
