@@ -12,6 +12,7 @@ public class AppMain {
 
     public void start() {
         //
+        // ApplicationContext is the interface, AnnotationConfigApplicationContext is one concrete implementation of ApplicationContext
         // application context used for setting up container/BeanFactory
         // AnnotationConfigApplicationContext is the type of ApplicationContext
         //
