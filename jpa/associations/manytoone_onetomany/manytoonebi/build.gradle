@@ -14,8 +14,8 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
     implementation 'org.hibernate:hibernate-core:5.4.28.Final'
-    //runtimeOnly  'org.postgresql:postgresql:42.2.19'
-    runtimeOnly 'org.hsqldb:hsqldb:2.5.0'
+    runtimeOnly  'org.postgresql:postgresql:42.2.19'
+    //runtimeOnly 'org.hsqldb:hsqldb:2.5.0'
 
 }
 

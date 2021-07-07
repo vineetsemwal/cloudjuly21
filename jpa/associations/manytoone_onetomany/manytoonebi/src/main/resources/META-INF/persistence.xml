@@ -6,13 +6,14 @@
   version="2.0">
 	<persistence-unit name="training-ms" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		
-		<properties>
 
-			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:training" />
-			<property name="javax.persistence.jdbc.user" value="tom" />
-			<property name="javax.persistence.jdbc.password" value="jerry" />
-			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/training" />
+			<property name="javax.persistence.jdbc.user" value="postgres" />
+			<property name="javax.persistence.jdbc.password" value="scooby" />
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL95Dialect"></property>
+			
 			<!-- create, create-drop, validate, update -->
 			<property name="hibernate.hbm2ddl.auto" value="create"/>
 		</properties>
