@@ -2,10 +2,12 @@ package com.example.customerms.dao;
 
 import com.example.customerms.entities.Customer;
 import com.example.customerms.exceptions.CustomerNotFoundException;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class CustomerDaoImpl implements ICustomerDao{
 
     // map has entries of id as key , Customer object as values

@@ -3,10 +3,14 @@ package com.example.customerms.service;
 import com.example.customerms.dao.CustomerDaoImpl;
 import com.example.customerms.dao.ICustomerDao;
 import com.example.customerms.entities.Customer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CustomerServiceImpl implements ICustomerService {
 
-    private ICustomerDao dao = new CustomerDaoImpl();
+    @Autowired
+    private ICustomerDao dao;
 
     @Override
     public Customer add(String name) {

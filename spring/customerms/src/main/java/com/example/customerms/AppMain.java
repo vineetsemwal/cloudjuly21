@@ -4,35 +4,35 @@ import com.example.customerms.entities.Customer;
 import com.example.customerms.exceptions.CustomerNotFoundException;
 import com.example.customerms.service.CustomerServiceImpl;
 import com.example.customerms.service.ICustomerService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class AppMain {
-    private ICustomerService service = new CustomerServiceImpl();
+
+
+    private ICustomerService service;
 
     public static void main(String args[]) {
-       AppMain app = new AppMain();
-       app.start();
+        AppMain app = new AppMain();
+        app.start();
+
     }
 
     public void start() {
-        try {
-            System.out.println("***add customer");
-            Customer customer = service.add("kalyan");
-            display(customer);
-            System.out.println("****find by id");
-            long id = 567;
-            Customer fetchedCustomer = service.findById(id);
-            display(fetchedCustomer);
-        }catch(CustomerNotFoundException e){
-           System.out.println(e.getMessage());
-        }
-
-        System.out.println("application finsihed, bye");
-
+        ApplicationContext context=new AnnotationConfigApplicationContext(JavaConfig.class);
+        service=context.getBean(ICustomerService.class);
+        System.out.println("***add customer");
+        Customer customer = service.add("kalyan");
+        display(customer);
+        System.out.println("****find by id");
+        long id = customer.getId();
+        Customer fetchedCustomer = service.findById(id);
+        display(fetchedCustomer);
     }
-
-
 
     void display(Customer customer) {
         System.out.println(customer.getId() + "-" + customer.getName());
     }
+
+
 }
