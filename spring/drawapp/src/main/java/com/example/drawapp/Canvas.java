@@ -1,6 +1,7 @@
 package com.example.drawapp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -13,9 +14,9 @@ import javax.annotation.PreDestroy;
 @Component
 public class Canvas {
 
+    @Qualifier("square")
     @Autowired
     private Shape shape;
-
 
     /**
      * tells spring that this method can be used for setting dependency
@@ -28,10 +29,6 @@ public class Canvas {
         return shape;
     }
 
-    @Autowired
-    public Canvas(Shape shape) {
-
-    }
 
     public void drawArea() {
         double area = shape.area();

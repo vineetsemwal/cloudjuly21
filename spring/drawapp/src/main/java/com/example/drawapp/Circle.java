@@ -3,6 +3,7 @@ package com.example.drawapp;
 import org.springframework.stereotype.Component;
 
 
+@Component
 public class Circle implements Shape{
 
     private double radius;

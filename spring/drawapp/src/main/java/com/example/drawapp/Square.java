@@ -7,11 +7,15 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 
+@Component
 public class Square  implements Shape{
 
-    @Value("${square.side}")
+   @Value("${square.side}")
     private double side;
 
+    public Square(){
+
+    }
 
     public Square(double side){
         this.side=side;
