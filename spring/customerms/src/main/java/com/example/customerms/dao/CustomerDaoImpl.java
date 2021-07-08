@@ -34,6 +34,7 @@ public class CustomerDaoImpl implements ICustomerDao{
        if(customer==null){
          throw new CustomerNotFoundException("customer not found for id="+id);
        }
+
        return customer ;
     }
 }
