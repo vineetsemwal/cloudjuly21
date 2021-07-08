@@ -13,13 +13,14 @@ import javax.annotation.PreDestroy;
 @Component
 public class Canvas {
 
+    @Autowired
     private Shape shape;
+
 
     /**
      * tells spring that this method can be used for setting dependency
      */
-    @Autowired
-    public void setShape(Shape shape){
+    public void setShape(Shape shape) {
         this.shape = shape;
     }
 
@@ -27,22 +28,26 @@ public class Canvas {
         return shape;
     }
 
-    public void drawArea(){
-        double area= shape.area();
-        System.out.println("drawing area is "+area);
+    @Autowired
+    public Canvas(Shape shape) {
+
+    }
+
+    public void drawArea() {
+        double area = shape.area();
+        System.out.println("drawing area is " + area);
     }
 
     @PostConstruct
-    public void  afterInit(){
-    System.out.println("inside afterinit of Canvas class "+shape.area());
+    public void afterInit() {
+        System.out.println("inside afterinit of Canvas class " + shape.area());
 
     }
 
     @PreDestroy
-    public void beforeDestroyed(){
+    public void beforeDestroyed() {
         System.out.println("inside Canvas beforeDestroyed");
     }
-
 
 
 }
