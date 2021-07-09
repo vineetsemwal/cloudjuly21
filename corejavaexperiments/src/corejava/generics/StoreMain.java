@@ -7,7 +7,7 @@ public class StoreMain {
 		store.add("hello");
 		String element=store.getElement();
 		System.out.println("element="+element);
-	
+
 		
 	}
 
