@@ -3,6 +3,7 @@ package com.example.customermsboot;
 import com.example.customermsboot.ui.AppUi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 
 /**
@@ -15,7 +16,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class AppMain {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(AppMain.class, args);
+        ApplicationContext context = SpringApplication.run(AppMain.class, args);
         AppUi appUi = context.getBean(AppUi.class);
         appUi.runUi();
     }
