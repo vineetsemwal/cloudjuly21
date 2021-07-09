@@ -45,9 +45,6 @@ public class DemoController {
         return response;
     }
 
-
-
-
     @GetMapping("/customer/profile")
     public ModelAndView customerInfo(@RequestParam("id") long id){
         Customer customer= map.get(id);
