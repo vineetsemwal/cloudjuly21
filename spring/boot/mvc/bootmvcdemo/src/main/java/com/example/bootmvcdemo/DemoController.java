@@ -45,12 +45,17 @@ public class DemoController {
         return response;
     }
 
-    @GetMapping("/customer/profile")
+    @GetMapping("/customerprofile")
     public ModelAndView customerInfo(@RequestParam("id") long id){
         Customer customer= map.get(id);
         ModelAndView response=new ModelAndView("customerprofile","customer",customer);
         return response;
     }
 
+    @GetMapping("/getprofile")
+    public ModelAndView getCustomerProfile() {
+        ModelAndView response=new ModelAndView("getprofile");
+        return response;
+    }
 
-}
+    }
