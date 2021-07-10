@@ -2,6 +2,7 @@ package corejava.collectiondemo;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class SetExperiment1 {
@@ -12,10 +13,10 @@ public class SetExperiment1 {
     }
 
     public void  start(){
-        Set<Employee> employees = new HashSet<>();
-        Employee emp1 = new Employee(1,"hariprasath");
-        Employee emp2=new Employee(2,"manikantha");
-        Employee emp3=new Employee(3, "dewakar");
+        Set<Employee> employees = new LinkedHashSet<>();
+        Employee emp1 = new Employee(1,"hariprasath", 21);
+        Employee emp2=new Employee(2,"manikantha",22);
+        Employee emp3=new Employee(3, "dewakar",23);
         employees.add(emp1);
         employees.add(emp3);
         employees.add(emp2);
@@ -23,6 +24,7 @@ public class SetExperiment1 {
         displayEmployees(employees);
         int size=employees.size();
         System.out.println("size="+size);
+
 
     }
 
