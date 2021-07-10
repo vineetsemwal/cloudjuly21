@@ -2,15 +2,16 @@ package corejava.collectiondemo;
 
 import java.util.*;
 
-public class MapExample1 {
+public class MapExample2 {
 
     public static void main(String args[]) {
-        MapExample1 example = new MapExample1();
+        MapExample2 example = new MapExample2();
         example.start();
     }
 
     public void start() {
-        Map<Integer, Employee> map = new LinkedHashMap<>();
+        Comparator<Integer> comparator = new EmployeeIdComparator();
+        Map<Integer, Employee> map = new TreeMap<>(comparator);
         Employee emp1 = new Employee(1, "chandu", 21);
         Employee emp2 = new Employee(2, "harini", 22);
         Employee emp3 = new Employee(3, "meghana", 23);
@@ -26,7 +27,7 @@ public class MapExample1 {
         System.out.println("** iterating on keys");
         for (int id : keys) {
             Employee value = map.get(id);
-            System.out.print("key=" + id);
+            System.out.print("key=" + id+"-");
             displayEmployee(value);
         }
 
