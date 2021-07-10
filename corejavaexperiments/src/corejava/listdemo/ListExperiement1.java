@@ -2,10 +2,10 @@ package corejava.listdemo;
 
 import java.util.*;
 
-public class ListExperiement {
+public class ListExperiement1 {
 
     public static void main (String args[]){
-       ListExperiement experiement=new ListExperiement();
+       ListExperiement1 experiement=new ListExperiement1();
        experiement.start();
 
     }
@@ -48,6 +48,14 @@ public class ListExperiement {
         System.out.println("*** after removing elements");
         display(list);
 
+        boolean exists=list.contains("ashwin");
+        System.out.println("exists ="+exists);
+
+        List<String>checkUs=new ArrayList<>();
+        checkUs.add("ashwin");
+        checkUs.add("keerthana");
+        boolean existAll=list.containsAll(checkUs);
+        System.out.println("existall="+existAll);
     }
 
 
