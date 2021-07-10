@@ -1,8 +1,6 @@
 package corejava.collectiondemo;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 public class ListExperiment2 {
 
@@ -23,6 +21,11 @@ public class ListExperiment2 {
         boolean exist = list.contains(emp22);
         System.out.println(exist);
 
+        Comparator<Employee>comparator=new EmployeeAgeComparator();
+        list.sort(comparator);
+
+       // Collections.sort(list);
+
         displayEmployees(list);
 
 
@@ -33,7 +36,7 @@ public class ListExperiment2 {
     }
 
     void displayEmployee(Employee employee){
-        System.out.println(employee.getId() +"-"+employee.getName());
+        System.out.println(employee.getId() +"-"+employee.getName()+" "+employee.getAge());
     }
 
     void displayEmployees(Collection<Employee> employees){
