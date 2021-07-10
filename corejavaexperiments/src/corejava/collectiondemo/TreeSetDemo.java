@@ -13,7 +13,7 @@ public class TreeSetDemo {
         //Comparator<Employee> comparator=new EmployeeAgeComparator();
         Comparator<Employee> comparator=new EmployeeNameComparator();
 
-        Set<Employee> employees = new TreeSet<>(comparator);
+        Set<Employee> employees = new TreeSet<>();
         Employee emp1 = new Employee(1,"hariprasath", 23);
         Employee emp2=new Employee(2,"manikantha",21);
         Employee emp3=new Employee(3, "dewakar",22);

@@ -1,6 +1,6 @@
 package corejava.collectiondemo;
 
-public class Employee {
+public class Employee implements Comparable<Employee>{
 
     private int id,age ;
 
@@ -63,5 +63,8 @@ public class Employee {
         return id;
     }
 
-
+    @Override
+    public int compareTo(Employee arg) {
+        return this.age-arg.age;
+    }
 }
