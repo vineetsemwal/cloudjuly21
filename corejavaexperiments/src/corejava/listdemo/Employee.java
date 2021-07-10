@@ -8,6 +8,13 @@ public class Employee {
 
     private String name;
 
+    public Employee(){}
+
+    public Employee(int id, String name){
+        this.id = id;
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }
@@ -24,16 +31,24 @@ public class Employee {
         this.name = name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return id == employee.id;
-    }
+    /**
+     *  Employee emp1=new Employee(1,"suganthi");
+     *   Employee emp2=new Employee(1,"suganthi")
+     *  boolean isEquals=emp1.equals(emp2)
+     *
+     */
 
     @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    public boolean equals(Object  arg){
+        if(this==arg){
+            return true;
+        }
+        if(arg==null||  !(arg instanceof Employee) ){
+            return false;
+        }
+        Employee that=(Employee)arg;
+        boolean equals=this.id==that.id;
+        return equals;
     }
+
 }
