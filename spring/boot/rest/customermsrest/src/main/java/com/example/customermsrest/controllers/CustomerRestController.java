@@ -1,4 +1,4 @@
-package com.example.customermsrest;
+package com.example.customermsrest.controllers;
 
 import com.example.customermsrest.entities.Customer;
 import com.example.customermsrest.service.ICustomerService;
@@ -10,7 +10,7 @@ import java.util.List;
 
 @RequestMapping("/customers")
 @RestController
-public class CustomerRestControlelr {
+public class CustomerRestController {
 
     @Autowired
     private ICustomerService service;

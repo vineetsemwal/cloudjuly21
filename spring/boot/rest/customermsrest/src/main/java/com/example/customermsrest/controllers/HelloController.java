@@ -1,4 +1,4 @@
-package com.example.customermsrest;
+package com.example.customermsrest.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
