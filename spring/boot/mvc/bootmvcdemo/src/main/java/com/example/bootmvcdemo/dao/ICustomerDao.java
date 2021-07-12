@@ -1,4 +1,4 @@
-package com.example.customerms.dao;
+package com.example.bootmvcdemo.dao;
 
 import com.example.customerms.entities.Customer;
 

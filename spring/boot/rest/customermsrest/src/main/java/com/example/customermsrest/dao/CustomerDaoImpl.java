@@ -1,11 +1,10 @@
-package com.example.bootmvcdemo.dao;
+package com.example.customermsrest.dao;
 
-import com.example.bootmvcdemo.entities.Customer;
-import com.example.bootmvcdemo.exceptions.CustomerNotFoundException;
+import com.example.customermsrest.entities.Customer;
+import com.example.customermsrest.exceptions.CustomerNotFoundException;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Component
 public class CustomerDaoImpl implements ICustomerDao{
@@ -36,5 +35,23 @@ public class CustomerDaoImpl implements ICustomerDao{
        }
 
        return customer ;
+    }
+
+    @Override
+    public Customer update(Customer customer){
+        store.put(customer.getId(), customer);
+         return customer;
+    }
+
+    @Override
+    public void deleteById(Long id){
+        store.remove(id);
+    }
+
+    @Override
+    public List<Customer> findAll(){
+       Collection<Customer> customers= store.values();
+       List<Customer>list=new ArrayList<>(customers);
+       return list ;
     }
 }
