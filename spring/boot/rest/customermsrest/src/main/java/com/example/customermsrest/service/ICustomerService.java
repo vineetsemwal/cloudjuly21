@@ -1,18 +1,22 @@
 package com.example.customermsrest.service;
 
+import com.example.customermsrest.dao.CustomerDaoImpl;
+import com.example.customermsrest.dto.CreateCustomerRequest;
+import com.example.customermsrest.dto.CustomerDetails;
+import com.example.customermsrest.dto.UpdateCustomerRequest;
 import com.example.customermsrest.entities.Customer;
 
 import java.util.List;
 
-public  interface ICustomerService {
+public interface ICustomerService {
 
-    Customer add(String name);
+    CustomerDetails add(CreateCustomerRequest request);
 
-    Customer findById(Long id);
+    CustomerDetails findCustomerDetailsById(Long id);
 
-    Customer update(Customer customer);
+    CustomerDetails update(UpdateCustomerRequest request);
 
     void deleteById(Long id);
 
-    List<Customer> findAll();
+    List<CustomerDetails> findAll();
 }

@@ -27,53 +27,44 @@ public class CustomerRestController {
      */
     @GetMapping("/byid/{id}")
     public CustomerDetails fetchCustomer(@PathVariable("id") Long id) {
-        Customer customer = service.findById(id);
-        CustomerDetails response=customerUtil.toDetails(customer);
+        CustomerDetails response =service.findCustomerDetailsById(id);
         return response;
     }
 
     /**
-     *
      * /customers
      */
     @GetMapping
-    public List<CustomerDetails> fetchAll(){
-      List<Customer>list=  service.findAll();
-      List<CustomerDetails>response= customerUtil.toDetailsList(list);
-      return response;
-    }
-
-    /**
-     *    /customers/add
-     * */
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/add")
-    public CustomerDetails addCustomer(@RequestBody CreateCustomerRequest requestData){
-       Customer customer =service.add(requestData.getName());
-       CustomerDetails response=customerUtil.toDetails(customer);
+    public List<CustomerDetails> fetchAll() {
+        List<CustomerDetails> response = service.findAll();
         return response;
     }
 
     /**
-     *
-     *  /customers/update
+     * /customers/add
+     */
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/add")
+    public CustomerDetails addCustomer(@RequestBody CreateCustomerRequest requestData) {
+        CustomerDetails desired = service.add(requestData);
+        return desired;
+    }
+
+    /**
+     * /customers/update
      */
     @PutMapping("/update")
-    public CustomerDetails updateCustomer(@RequestBody UpdateCustomerRequest requestData){
-       Customer customer=service.findById(requestData.getId());
-       customer.setName(requestData.getName());
-       customer=service.update(customer);
-       CustomerDetails response=customerUtil.toDetails(customer);
-       return response;
+    public CustomerDetails updateCustomer(@RequestBody UpdateCustomerRequest requestData) {
+       CustomerDetails response=service.update(requestData);
+        return response;
     }
 
 
     @DeleteMapping("/delete/byid/{id}")
-    public String deleteCustomer(@PathVariable Long id){
+    public String deleteCustomer(@PathVariable Long id) {
         service.deleteById(id);
-        return "deleted customer with id="+id;
+        return "deleted customer with id=" + id;
     }
-
 
 
 }
