@@ -1,8 +1,17 @@
 package com.example.customermsrest.dto;
 
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 public class UpdateCustomerRequest {
+    @Min(1)
+    @NotNull
     private Long id;
 
+    @Length(max=20,min = 1)
     private String name;
 
     public Long getId() {

@@ -24,7 +24,6 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public CustomerDetails add(CreateCustomerRequest request) {
-        validateName(request.getName());
         Customer customer = new Customer();
         customer.setName(request.getName());
         customer = dao.add(customer);
