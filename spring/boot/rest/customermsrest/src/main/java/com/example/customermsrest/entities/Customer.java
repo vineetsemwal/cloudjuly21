@@ -1,5 +1,6 @@
 package com.example.customermsrest.entities;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Customer {
@@ -8,6 +9,7 @@ public class Customer {
 
     private String name;
 
+    private LocalDate createdDate;
 
     public Long getId() {
         return id;
@@ -23,6 +25,14 @@ public class Customer {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public LocalDate getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDate createdDate) {
+        this.createdDate = createdDate;
     }
 
     @Override

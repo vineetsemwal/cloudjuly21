@@ -4,6 +4,7 @@ import com.example.customermsrest.entities.Customer;
 import com.example.customermsrest.exceptions.CustomerNotFoundException;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.*;
 
 @Component
@@ -23,6 +24,8 @@ public class CustomerDaoImpl implements ICustomerDao{
     public Customer add(Customer customer) {
        long id= newId();
         customer.setId(id);
+        LocalDate today=LocalDate.now();
+        customer.setCreatedDate(today);
         store.put(id, customer);
         return customer;
     }

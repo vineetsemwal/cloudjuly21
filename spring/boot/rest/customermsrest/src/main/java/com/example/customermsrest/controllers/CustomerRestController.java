@@ -1,7 +1,11 @@
 package com.example.customermsrest.controllers;
 
+import com.example.customermsrest.dto.CreateCustomerRequest;
+import com.example.customermsrest.dto.CustomerDetails;
+import com.example.customermsrest.dto.UpdateCustomerRequest;
 import com.example.customermsrest.entities.Customer;
 import com.example.customermsrest.service.ICustomerService;
+import com.example.customermsrest.util.CustomerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -15,13 +19,17 @@ public class CustomerRestController {
     @Autowired
     private ICustomerService service;
 
+    @Autowired
+    private CustomerUtil customerUtil;
+
     /**
      * /customers/byid/5
      */
     @GetMapping("/byid/{id}")
-    public Customer fetchCustomer(@PathVariable("id") Long id) {
+    public CustomerDetails fetchCustomer(@PathVariable("id") Long id) {
         Customer customer = service.findById(id);
-        return customer;
+        CustomerDetails response=customerUtil.toDetails(customer);
+        return response;
     }
 
     /**
@@ -39,8 +47,9 @@ public class CustomerRestController {
      * */
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/add")
-    public Customer addCustomer(@RequestBody Customer requestData){
-       Customer response =service.add(requestData.getName());
+    public CustomerDetails addCustomer(@RequestBody CreateCustomerRequest requestData){
+       Customer customer =service.add(requestData.getName());
+       CustomerDetails response=customerUtil.toDetails(customer);
         return response;
     }
 
@@ -49,8 +58,11 @@ public class CustomerRestController {
      *  /customers/update
      */
     @PutMapping("/update")
-    public Customer updateCustomer(@RequestBody Customer requestData){
-       Customer response =service.update(requestData);
+    public CustomerDetails updateCustomer(@RequestBody UpdateCustomerRequest requestData){
+       Customer customer=service.findById(requestData.getId());
+       customer.setName(requestData.getName());
+       customer=service.update(customer);
+       CustomerDetails response=customerUtil.toDetails(customer);
        return response;
     }
 
