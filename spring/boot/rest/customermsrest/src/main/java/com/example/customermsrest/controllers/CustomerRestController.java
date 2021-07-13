@@ -37,9 +37,10 @@ public class CustomerRestController {
      * /customers
      */
     @GetMapping
-    public List<Customer> fetchAll(){
+    public List<CustomerDetails> fetchAll(){
       List<Customer>list=  service.findAll();
-      return list;
+      List<CustomerDetails>response= customerUtil.toDetailsList(list);
+      return response;
     }
 
     /**
