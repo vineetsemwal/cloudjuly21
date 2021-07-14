@@ -20,8 +20,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-	runtimeOnly  'org.postgresql:postgresql:42.2.19'
-	//runtimeOnly 'org.hsqldb:hsqldb:2.5.0'
+	//runtimeOnly  'org.postgresql:postgresql:42.2.19'
+	runtimeOnly 'org.hsqldb:hsqldb:2.5.0'
 
 }
 
