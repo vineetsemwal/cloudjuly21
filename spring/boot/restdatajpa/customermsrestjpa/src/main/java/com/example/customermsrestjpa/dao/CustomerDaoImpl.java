@@ -1,12 +1,11 @@
-package com.example.customermsrest.dao;
+package com.example.customermsrestjpa.dao;
 
-import com.example.customermsrest.entities.Customer;
-import com.example.customermsrest.exceptions.CustomerNotFoundException;
+import com.example.customermsrestjpa.entities.Customer;
+import com.example.customermsrestjpa.exceptions.CustomerNotFoundException;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.time.LocalDate;
 import java.util.*;

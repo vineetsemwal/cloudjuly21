@@ -1,13 +1,12 @@
-package com.example.customermsrest.util;
+package com.example.customermsrestjpa.util;
 
-import com.example.customermsrest.dto.CustomerDetails;
-import com.example.customermsrest.entities.Customer;
+import com.example.customermsrestjpa.dto.CustomerDetails;
+import com.example.customermsrestjpa.entities.Customer;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class CustomerUtil {

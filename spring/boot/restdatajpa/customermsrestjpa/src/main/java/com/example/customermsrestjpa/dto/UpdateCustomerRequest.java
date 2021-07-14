@@ -1,8 +1,7 @@
-package com.example.customermsrest.dto;
+package com.example.customermsrestjpa.dto;
 
 import org.hibernate.validator.constraints.Length;
 
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 

@@ -1,15 +1,14 @@
-package com.example.customermsrest.service;
+package com.example.customermsrestjpa.service;
 
-import com.example.customermsrest.dao.ICustomerDao;
-import com.example.customermsrest.dto.CreateCustomerRequest;
-import com.example.customermsrest.dto.CustomerDetails;
-import com.example.customermsrest.dto.UpdateCustomerRequest;
-import com.example.customermsrest.entities.Customer;
-import com.example.customermsrest.exceptions.InvalidCustomerIdException;
-import com.example.customermsrest.exceptions.InvalidCustomerNameException;
-import com.example.customermsrest.util.CustomerUtil;
+import com.example.customermsrestjpa.dao.ICustomerDao;
+import com.example.customermsrestjpa.dto.CreateCustomerRequest;
+import com.example.customermsrestjpa.dto.CustomerDetails;
+import com.example.customermsrestjpa.dto.UpdateCustomerRequest;
+import com.example.customermsrestjpa.entities.Customer;
+import com.example.customermsrestjpa.exceptions.InvalidCustomerIdException;
+import com.example.customermsrestjpa.exceptions.InvalidCustomerNameException;
+import com.example.customermsrestjpa.util.CustomerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

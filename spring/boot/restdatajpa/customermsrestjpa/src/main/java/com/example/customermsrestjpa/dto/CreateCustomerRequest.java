@@ -1,8 +1,6 @@
-package com.example.customermsrest.dto;
+package com.example.customermsrestjpa.dto;
 
 import org.hibernate.validator.constraints.Length;
-
-import javax.validation.constraints.NotBlank;
 
 public class CreateCustomerRequest {
 

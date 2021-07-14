@@ -1,4 +1,4 @@
-package com.example.customermsrest.dto;
+package com.example.customermsrestjpa.dto;
 
 public class CustomerDetails {
 

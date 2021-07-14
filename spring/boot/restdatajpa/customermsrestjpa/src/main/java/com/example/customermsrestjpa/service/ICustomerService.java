@@ -1,10 +1,8 @@
-package com.example.customermsrest.service;
+package com.example.customermsrestjpa.service;
 
-import com.example.customermsrest.dao.CustomerDaoImpl;
-import com.example.customermsrest.dto.CreateCustomerRequest;
-import com.example.customermsrest.dto.CustomerDetails;
-import com.example.customermsrest.dto.UpdateCustomerRequest;
-import com.example.customermsrest.entities.Customer;
+import com.example.customermsrestjpa.dto.CreateCustomerRequest;
+import com.example.customermsrestjpa.dto.CustomerDetails;
+import com.example.customermsrestjpa.dto.UpdateCustomerRequest;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.Valid;

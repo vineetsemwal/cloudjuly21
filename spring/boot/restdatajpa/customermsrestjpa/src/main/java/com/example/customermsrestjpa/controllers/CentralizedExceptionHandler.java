@@ -1,7 +1,7 @@
-package com.example.customermsrest.controllers;
+package com.example.customermsrestjpa.controllers;
 
-import com.example.customermsrest.exceptions.CustomerNotFoundException;
-import com.example.customermsrest.exceptions.InvalidCustomerNameException;
+import com.example.customermsrestjpa.exceptions.CustomerNotFoundException;
+import com.example.customermsrestjpa.exceptions.InvalidCustomerNameException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;

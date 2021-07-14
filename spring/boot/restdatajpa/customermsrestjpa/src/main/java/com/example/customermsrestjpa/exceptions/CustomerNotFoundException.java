@@ -1,4 +1,4 @@
-package com.example.customermsrest.exceptions;
+package com.example.customermsrestjpa.exceptions;
 
 public class CustomerNotFoundException extends RuntimeException{
 

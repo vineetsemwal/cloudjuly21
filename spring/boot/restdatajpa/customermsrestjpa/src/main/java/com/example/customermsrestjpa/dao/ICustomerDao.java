@@ -1,6 +1,6 @@
-package com.example.customermsrest.dao;
+package com.example.customermsrestjpa.dao;
 
-import com.example.customermsrest.entities.Customer;
+import com.example.customermsrestjpa.entities.Customer;
 
 import java.util.List;
 

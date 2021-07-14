@@ -1,22 +1,14 @@
-package com.example.customermsrest.controllers;
+package com.example.customermsrestjpa.controllers;
 
-import com.example.customermsrest.dto.CreateCustomerRequest;
-import com.example.customermsrest.dto.CustomerDetails;
-import com.example.customermsrest.dto.UpdateCustomerRequest;
-import com.example.customermsrest.entities.Customer;
-import com.example.customermsrest.exceptions.CustomerNotFoundException;
-import com.example.customermsrest.exceptions.InvalidCustomerNameException;
-import com.example.customermsrest.service.ICustomerService;
-import com.example.customermsrest.util.CustomerUtil;
+import com.example.customermsrestjpa.dto.CreateCustomerRequest;
+import com.example.customermsrestjpa.dto.CustomerDetails;
+import com.example.customermsrestjpa.dto.UpdateCustomerRequest;
+import com.example.customermsrestjpa.service.ICustomerService;
+import com.example.customermsrestjpa.util.CustomerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @RequestMapping("/customers")
