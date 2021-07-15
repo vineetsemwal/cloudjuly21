@@ -9,6 +9,8 @@ import com.example.customermsrestdatajpa.exceptions.CustomerNotFoundException;
 import com.example.customermsrestdatajpa.exceptions.InvalidCustomerIdException;
 import com.example.customermsrestdatajpa.exceptions.InvalidCustomerNameException;
 import com.example.customermsrestdatajpa.util.CustomerUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +23,7 @@ import java.util.Optional;
 @Transactional
 @Service
 public class CustomerServiceImpl implements ICustomerService {
+   private static final Logger Log= LoggerFactory.getLogger(CustomerServiceImpl.class);
 
     @Autowired
     private ICustomerRepository customerRepo;
@@ -40,6 +43,7 @@ public class CustomerServiceImpl implements ICustomerService {
     }
 
     public Customer findById(Long id) {
+        Log.debug("inside findbyid="+id);
         Optional<Customer> optional =customerRepo.findById(id);
         if(!optional.isPresent()){
             throw new CustomerNotFoundException("customer not found for id="+id);
