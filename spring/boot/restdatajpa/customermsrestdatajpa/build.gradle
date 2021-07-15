@@ -23,9 +23,7 @@ dependencies {
 	//runtimeOnly  'org.postgresql:postgresql:42.2.19'
 	runtimeOnly 'org.hsqldb:hsqldb:2.5.0'
 
-	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.7.0'
-	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0'
-
+	implementation 'org.springdoc:springdoc-openapi-ui:1.5.9'
 
 }
 
