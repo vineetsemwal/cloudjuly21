@@ -7,6 +7,7 @@ import com.example.customermsrestdatajpa.service.ICustomerService;
 import com.example.customermsrestdatajpa.util.CustomerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,13 +25,27 @@ public class CustomerRestController {
     /**
      * /customers/byid/5
      */
-   // @RequestMapping(method=RequestMethod.GET, path = "/byid/{id}")
+
+    // @RequestMapping(method=RequestMethod.GET, path = "/byid/{id}")
     @GetMapping("/byid/{id}")
     public CustomerDetails fetchCustomerById( @PathVariable("id") Long id) {
         CustomerDetails response = service.findCustomerDetailsById(id);
         return response;
-
     }
+
+
+    /*
+
+    //Using ResponseEntity, Old way, might be useful when response headers have to be added in response
+
+    @GetMapping("/byid/{id}")
+    public ResponseEntity<CustomerDetails> fetchCustomerById(@PathVariable("id") Long id) {
+        CustomerDetails result = service.findCustomerDetailsById(id);
+        ResponseEntity<CustomerDetails>response=new ResponseEntity<>(result,HttpStatus.OK);
+        return response;
+    }
+*/
+
 
     @GetMapping("/byname/{name}")
     public List<CustomerDetails>fetchByName(@PathVariable String name){
