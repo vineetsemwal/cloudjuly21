@@ -24,6 +24,7 @@ public class CustomerRestController {
     /**
      * /customers/byid/5
      */
+   // @RequestMapping(method=RequestMethod.GET, path = "/byid/{id}")
     @GetMapping("/byid/{id}")
     public CustomerDetails fetchCustomerById( @PathVariable("id") Long id) {
         CustomerDetails response = service.findCustomerDetailsById(id);
@@ -49,6 +50,7 @@ public class CustomerRestController {
     /**
      * /customers/add
      */
+   // @RequestMapping(method=RequestMethod.POST, path="/add")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/add")
     public CustomerDetails addCustomer(@RequestBody CreateCustomerRequest requestData) {
