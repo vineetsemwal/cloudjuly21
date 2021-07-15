@@ -5,12 +5,14 @@ import com.example.customermsrestdatajpa.dto.CustomerDetails;
 import com.example.customermsrestdatajpa.dto.UpdateCustomerRequest;
 import com.example.customermsrestdatajpa.service.ICustomerService;
 import com.example.customermsrestdatajpa.util.CustomerUtil;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Api("customers")
 @RequestMapping("/customers")
 @RestController
 public class CustomerRestController {
