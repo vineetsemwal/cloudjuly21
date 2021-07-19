@@ -58,4 +58,11 @@ public class CustomerUtil {
        return details;
     }
 
+    public ProductDetails fetchLatestProduct(){
+        String url=productBaseUrl+"/products/latest";
+        ProductDetails details=restTemplate.getForObject(url,ProductDetails.class);
+        return details;
+    }
+
+
 }

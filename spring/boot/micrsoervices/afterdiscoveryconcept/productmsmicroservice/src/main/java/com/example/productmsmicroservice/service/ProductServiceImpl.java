@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Transactional
@@ -27,6 +28,8 @@ public class ProductServiceImpl implements IProductService{
         Product product=new Product();
         product.setName(requestData.getName());
         product.setUnits(requestData.getUnits());
+        LocalDateTime now=LocalDateTime.now();
+        product.setAddedDateTime(now);
         product=productRepo.save(product);
         ProductDetails desired=productUtil.toDetails(product);
         return desired;
@@ -44,6 +47,13 @@ public class ProductServiceImpl implements IProductService{
     public ProductDetails findProductDetailsById(Long id) {
        Product product= findById(id);
        ProductDetails desired=productUtil.toDetails(product);
+        return desired;
+    }
+
+    @Override
+    public ProductDetails newestProduct() {
+       Product product=  productRepo.findFirstByOrderByAddedDateTimeDesc();
+        ProductDetails desired=productUtil.toDetails(product);
         return desired;
     }
 }

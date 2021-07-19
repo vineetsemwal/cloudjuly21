@@ -6,6 +6,9 @@ import com.example.customermicroservice.dto.ProductDetails;
 import com.example.customermicroservice.dto.UpdateCustomerRequest;
 import com.example.customermicroservice.service.ICustomerService;
 import com.example.customermicroservice.util.CustomerUtil;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +19,25 @@ import java.util.List;
 @RestController
 public class CustomerRestController {
 
+    private static final Logger Log= LoggerFactory.getLogger(CustomerRestController.class);
+
     @Autowired
     private ICustomerService service;
 
     @Autowired
     private CustomerUtil customerUtil;
+
+
+    private ProductDetails cachedNewestProduct;
+
+    public ProductDetails getCachedNewestProduct(){
+        return cachedNewestProduct;
+    }
+
+    public void setCachedNewestProduct(ProductDetails product){
+        this.cachedNewestProduct=product;
+    }
+
 
     /**
      * /customers/byid/5
@@ -94,6 +111,21 @@ public class CustomerRestController {
        CustomerDetails response =service.buyProduct(customerId,productId);
        return response;
     }
+
+    @HystrixCommand(fallbackMethod = "fetchNewestProductFallback")
+    @GetMapping("/products/newest")
+    public ProductDetails fetchNewestProduct(){
+        Log.info("*****inside fetchNewestProduct");
+        ProductDetails response= customerUtil.fetchLatestProduct();
+        setCachedNewestProduct(response);
+        return response;
+    }
+
+    public ProductDetails fetchNewestProductFallback(){
+        Log.info("*********inside fetchNewestProductFallback");
+         return  getCachedNewestProduct();
+    }
+
 
 
 }

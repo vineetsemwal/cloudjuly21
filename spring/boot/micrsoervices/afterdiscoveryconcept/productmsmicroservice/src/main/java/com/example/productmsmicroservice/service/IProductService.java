@@ -15,4 +15,6 @@ public interface IProductService {
 
     ProductDetails findProductDetailsById(@NotNull @Min(1) Long id);
 
+    ProductDetails newestProduct();
+
 }

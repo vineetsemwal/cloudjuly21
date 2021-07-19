@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Table(name="products" )
@@ -17,6 +18,18 @@ public class Product {
     private String name;
 
     private int units;
+
+
+    private LocalDateTime addedDateTime;
+
+
+    public LocalDateTime getAddedDateTime() {
+        return addedDateTime;
+    }
+
+    public void setAddedDateTime(LocalDateTime addedDateTime) {
+        this.addedDateTime = addedDateTime;
+    }
 
     public Long getId() {
         return id;

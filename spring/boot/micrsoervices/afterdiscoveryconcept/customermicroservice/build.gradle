@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '2.5.2'
+	id 'org.springframework.boot' version '2.3.11.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id 'war'
@@ -14,7 +14,7 @@ repositories {
 }
 
 ext {
-	set('springCloudVersion', "2020.0.3")
+	set('springCloudVersion', "Hoxton.SR11")
 }
 
 dependencies {
@@ -31,6 +31,10 @@ dependencies {
 	implementation 'org.springdoc:springdoc-openapi-ui:1.5.9'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix'
+
+	implementation 	'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+			
 
 }
 

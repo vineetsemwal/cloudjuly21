@@ -28,4 +28,8 @@ public class AddProductRequest {
     public void setUnits(int units) {
         this.units = units;
     }
+
+    private double rating;
+
+
 }
