@@ -15,8 +15,6 @@ public class Cart {
     private Long userId;
 
 
-
-
     @ElementCollection(fetch= FetchType.EAGER)
     private Map<Long,Integer> items;
 
