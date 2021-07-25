@@ -18,4 +18,9 @@ public class DifferenceDays {
         return days;
     }
 
+    public int months(LocalDate startDate, LocalDate endDate){
+        long months=ChronoUnit.MONTHS.between(startDate,endDate);
+        return (int)months;
+    }
+
 }
