@@ -3,6 +3,7 @@ package com.example.customermsrestdatajpa.service;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.example.customermsrestdatajpa.dao.ICustomerRepository;
+import com.example.customermsrestdatajpa.dto.CreateCustomerRequest;
 import com.example.customermsrestdatajpa.dto.CustomerDetails;
 import com.example.customermsrestdatajpa.entities.Customer;
 import com.example.customermsrestdatajpa.exceptions.CustomerNotFoundException;
@@ -19,6 +20,7 @@ import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import javax.swing.text.html.Option;
+import java.time.LocalDate;
 import java.util.Optional;
 
 import static org.mockito.Mockito.*;
@@ -51,7 +53,7 @@ class CustomerServiceImplUnitTest {
     }
 
     /**
-     * scenairo : customer Not found
+     * scenario : customer Not found
      * expectation : CustomerNotFoundException is thrown
      */
     @Test
@@ -70,8 +72,10 @@ class CustomerServiceImplUnitTest {
     @Test
     public void testFindCustomerDetailsById_1() {
         long id=15;
-        Customer customer = mock(Customer.class);
-        CustomerDetails customerDetails=mock(CustomerDetails.class);
+        Customer customer = new Customer();
+        customer.setId(id);
+        CustomerDetails customerDetails=new CustomerDetails();
+        customerDetails.setId(id);
         doReturn(customer).when(service).findById(id);
         when(customerUtil.toDetails(customer)).thenReturn(customerDetails);
         CustomerDetails result =service.findCustomerDetailsById(id);
@@ -79,5 +83,24 @@ class CustomerServiceImplUnitTest {
         verify(service).findById(id);
         verify(customerUtil).toDetails(customer);
     }
+
+    @Test
+    public void testAdd_1(){
+        CreateCustomerRequest request=new CreateCustomerRequest();
+        request.setName("abhro");
+        Customer customer=new Customer();
+        customer.setId(1l);
+        doReturn(customer).when(service).newCustomer();
+        CustomerDetails details=mock(CustomerDetails.class);
+        LocalDate today= LocalDate.now();
+        when(repository.save(customer)).thenReturn(customer);
+        when(customerUtil.toDetails(customer)).thenReturn(details);
+        doReturn(today).when(service).currentDate();
+        doNothing().when(service).validate(request);
+        CustomerDetails result=service.add(request);
+        assertEquals(details,result);
+        assertEquals("abhro",customer.getName());
+    }
+
 
 }

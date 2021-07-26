@@ -34,13 +34,28 @@ public class CustomerServiceImpl implements ICustomerService {
    
     @Override
     public CustomerDetails add(CreateCustomerRequest request) {
-        Customer customer = new Customer();
+        validate(request);
+        Customer customer = newCustomer();
         customer.setName(request.getName());
-        LocalDate today=LocalDate.now();
+        LocalDate today=currentDate();
         customer.setCreatedDate(today);
         customer = customerRepo.save(customer);
         CustomerDetails desired = customerUtil.toDetails(customer);
         return desired;
+    }
+
+    public LocalDate currentDate(){
+        return LocalDate.now();
+    }
+
+    public Customer newCustomer(){
+        return new Customer();
+    }
+
+    public void validate(CreateCustomerRequest request){
+        if(request.getName()==null ||request.getName().isEmpty() || request.getName().length()>20){
+            throw new InvalidCustomerNameException("invalid customer name");
+        }
     }
 
     public Customer findById(Long id) {
@@ -59,6 +74,8 @@ public class CustomerServiceImpl implements ICustomerService {
         CustomerDetails desired = customerUtil.toDetails(customer);
         return desired;
     }
+
+
 
     @Override
     public CustomerDetails update(UpdateCustomerRequest request) {
