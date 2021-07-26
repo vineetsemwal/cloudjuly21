@@ -15,4 +15,11 @@ public class Calculator {
        return result;
     }
 
+    public int addBy10(int num){
+        System.out.println("inside add by 10");
+       int result= add(num,10);
+       return result;
+    }
+
+
 }

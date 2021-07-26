@@ -50,4 +50,14 @@ public class CalculatorUnitTest {
         assertEquals(-15,result);
     }
 
+    @Test
+    public void testAddBy10_1(){
+        int num=5;
+        Calculator spy=spy(calcy);
+        //when(spy.add(num,10)).thenReturn(15);
+        doReturn(15).when(spy).add(num,10);
+        int result=spy.addBy10(num);
+         assertEquals(15,result);
+    }
+
 }
