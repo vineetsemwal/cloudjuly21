@@ -100,6 +100,7 @@ class CustomerServiceImplUnitTest {
         CustomerDetails result=service.add(request);
         assertEquals(details,result);
         assertEquals("abhro",customer.getName());
+        verify(repository).save(customer);
     }
 
 
