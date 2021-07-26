@@ -13,7 +13,8 @@ public class CalculatorIntegerationTest {
     @BeforeEach
     public void setup(){
         System.out.println("inside setup");
-        calcy = new Calculator(new Adder());
+        calcy = new Calculator();
+        calcy.setAdder(new Adder());
     }
 
     @AfterEach

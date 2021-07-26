@@ -15,8 +15,9 @@ public class CalculatorUnitTest {
     @BeforeEach
     public void setup(){
         System.out.println("inside setup");
+        calcy = new Calculator();
         adder=mock(Adder.class);
-        calcy = new Calculator(adder);
+        calcy.setAdder(adder);
     }
 
     @AfterEach
@@ -44,8 +45,8 @@ public class CalculatorUnitTest {
     @Test
     public void testAdd_2(){
         System.out.println("isnide testAdd2");
-        int result=calcy.add(-5,-10);
         when(adder.add(-5,-10)).thenReturn(-15);
+        int result=calcy.add(-5,-10);
         assertEquals(-15,result);
     }
 
