@@ -2,7 +2,7 @@ package com.example.customermsrestdatajpa;
 
 public class Calculator {
 
-    Adder adder;
+    private Adder adder;
 
     public void setAdder(Adder adder){
         this.adder=adder;

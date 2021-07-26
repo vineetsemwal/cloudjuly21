@@ -25,7 +25,7 @@ public class CalculatorUnitTest {
         System.out.println("inside clean");
     }
     /**
-     *  scenaio when both numbers are positive
+     *  scenario when both numbers are positive
      *  inputs: ip1 : 5 , ip2:7
      *  expectation: 12
      */
