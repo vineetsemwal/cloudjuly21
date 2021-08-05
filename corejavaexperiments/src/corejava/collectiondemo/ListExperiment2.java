@@ -24,6 +24,7 @@ public class ListExperiment2 {
         Comparator<Employee>comparator=new EmployeeAgeComparator();
         list.sort(comparator);
 
+
        // Collections.sort(list);
 
         displayEmployees(list);

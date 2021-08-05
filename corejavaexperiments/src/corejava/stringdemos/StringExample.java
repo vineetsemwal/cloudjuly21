@@ -5,9 +5,12 @@ public class StringExample {
     public static void main(String[] args){
         String input= "Arpit.MehtaID123456Annual80L";
         StringExample example=new StringExample();
-      //  example.findAndPrint(input);
-        String output=example.convert(input);
-        System.out.println("output="+output);
+         staticMethod(example);
+    }
+
+    public static void  staticMethod(StringExample example){
+        example.findAndPrint("hello");
+        
     }
 
     /**
