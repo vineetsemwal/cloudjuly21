@@ -51,7 +51,7 @@ public class CentralizedExceptionHandler {
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(UnsuccessfulCustomerAddException.class)
-    public String handleSqlException(UnsuccessfulCustomerAddException e){
+    public String handleCustomerAddException(UnsuccessfulCustomerAddException e){
         Log.info("exception caught", e);
         return e.getMessage();
     }

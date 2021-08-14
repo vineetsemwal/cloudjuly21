@@ -32,7 +32,7 @@ public class CustomerServiceImpl implements ICustomerService {
             CustomerDetails desired = customerUtil.toDetails(customer);
             return desired;
         }catch(Exception e){
-            throw new UnsuccessfulCustomerAddException("exception in Customer Add",e);
+            throw new UnsuccessfulCustomerAddException(e.getMessage(),e);
         }
     }
 
