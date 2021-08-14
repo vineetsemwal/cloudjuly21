@@ -7,6 +7,7 @@ import com.example.customermsrest.dto.UpdateCustomerRequest;
 import com.example.customermsrest.entities.Customer;
 import com.example.customermsrest.exceptions.InvalidCustomerIdException;
 import com.example.customermsrest.exceptions.InvalidCustomerNameException;
+import com.example.customermsrest.exceptions.UnsuccessfulCustomerAddException;
 import com.example.customermsrest.util.CustomerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,11 +25,15 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public CustomerDetails add(CreateCustomerRequest request) {
-        Customer customer = new Customer();
-        customer.setName(request.getName());
-        customer = dao.add(customer);
-        CustomerDetails desired = customerUtil.toDetails(customer);
-        return desired;
+        try {
+            Customer customer = new Customer();
+            customer.setName(request.getName());
+            customer = dao.add(customer);
+            CustomerDetails desired = customerUtil.toDetails(customer);
+            return desired;
+        }catch(Exception e){
+            throw new UnsuccessfulCustomerAddException("exception in Customer Add",e);
+        }
     }
 
     public Customer findById(Long id) {
